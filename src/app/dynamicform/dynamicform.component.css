@@ -1,0 +1,38 @@
+*{ font-family: "Roboto", sans-serif;}
+.container{
+  width:550px;
+  background: white;
+  padding: 25px;
+  margin: 30px auto ;
+  border-top: 5px solid blue;
+}
+
+h3{
+  font-size: 28px;
+  line-height: 28px;
+}
+h5{font-size: 16px;}
+label,input{
+  font-size: 14px;
+}
+.radio-btns {
+  display: flex;
+  justify-content: space-around;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+  margin-right: 0.5rem;
+}
+
+.shw {
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  border-radius: 6px;
+}
+.error {
+  width: 100%;
+  margin-bottom: 0.5rem;
+  font-size:14px;
+  color: #dc3545;
+}
+

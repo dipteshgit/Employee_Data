@@ -1,0 +1,131 @@
+
+
+
+
+  <section class="container  shw ">
+    <div class="row">
+      <header class="text-center">
+        <h3>{{ metadata.title }}</h3>
+      </header>
+    </div>
+    <form [formGroup]="form">
+      <div class="row">
+        <ng-container *ngFor="let section of metadata.formFields">
+          <div class="col-12 mt-3">
+            <h5>{{ section.label }}</h5>
+          </div>
+
+          <ng-container *ngFor="let field of section.fields">
+            <div class="col-md-6 mb-3">
+              <label for="user" class="form-label">{{ field.label }}</label>
+
+              <ng-container [ngSwitch]="field.type">
+                <input
+                  [type]="field.type"
+                  [formControlName]="field.name"
+                  [placeholder]="field.placeholder"
+                  class="form-control"
+                  *ngSwitchCase="'text'"
+                />
+              </ng-container>
+
+              <ng-container [ngSwitch]="field.type">
+                <input
+                  [type]="field.type"
+                  [formControlName]="field.name"
+                  class="form-control"
+                  *ngSwitchCase="'date'"
+                />
+              </ng-container>
+
+              <ng-container [ngSwitch]="field.type">
+                <div class="radio-btns" *ngSwitchCase="'radio'">
+                  <div *ngFor="let option of field.options">
+                    <input
+                      type="radio"
+                      id="Home"
+                      [value]="option.value"
+                      [formControlName]="field.name"
+                    />
+                    <label for="Home">{{ option.label }}</label>
+                  </div>
+                </div>
+                <!-- <input
+                  [type]="field.type"
+                  [formControlName]="field.name"
+                  class="form-control"
+                  *ngSwitchCase="'date'"
+                /> -->
+              </ng-container>
+
+              <ng-container [ngSwitch]="field.type">
+                <div
+                  class="radio-btns"
+                  *ngSwitchCase="'checkbox'"
+                  [formGroup]="nameFormGroup"
+                >
+                  <div *ngFor="let option of field.options">
+                    <input
+                      type="checkbox"
+                      [formControlName]="option.label"
+                      [value]="option.value"
+                    />
+                    <label for="Home">{{ option.label }}</label>
+                  </div>
+                </div>
+              </ng-container>
+
+              <ng-container [ngSwitch]="field.type">
+                <div *ngSwitchCase="'select'">
+                  <select
+                    [formControlName]="field.name"
+                    class="form-select"
+                    aria-label="Default select example"
+                  >
+                    <option value="">Select {{ field.name }}</option>
+                    <option
+                      *ngFor="let option of field.options"
+                      [value]="option.value"
+                    >
+                      {{ option.label }}
+                    </option>
+                  </select>
+                </div>
+                <!-- <input
+                  [type]="field.type"
+                  [formControlName]="field.name"
+                  class="form-control"
+                  *ngSwitchCase="'date'"
+                /> -->
+              </ng-container>
+
+              <div
+                *ngIf="
+                  (form.get(field.name)?.invalid &&
+                    form.get(field.name)?.touched) ||
+                  (form.get(field.name)?.invalid && submitted)
+                "
+              >
+                <small
+                  *ngIf="form.get(field.name)?.errors?.required"
+                  class="error"
+                  >Required</small
+                >
+                <small
+                  *ngIf="form.get(field.name)?.errors?.pattern"
+                  class="error"
+                  >Invalid format</small
+                >
+              </div>
+            </div>
+          </ng-container>
+        </ng-container>
+        <div class="col-12 mt-3">
+          <button type="submit" (click)="submit()" class="btn btn-primary">
+            Submit
+          </button>
+        </div>
+      </div>
+    </form>
+  </section>
+
