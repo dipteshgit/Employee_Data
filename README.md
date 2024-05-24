@@ -7,15 +7,15 @@ Created two components
 2 dynamic-form service
 
 # Logic
-1.Added Json object to main app component which pass this object to dynamicform component .
-2.dynamic form component passes this object to service which iterate on object and create dynamic form with form controls abd returns the form.
-3.dynamic form template,  displays this dynamic form return by service in its template.
+1.Added Json object to the main app component which passes this object to dynamicform component .
+2.Dynamic form component passes this object to service, which iterate on object and create dynamic form with form controls and returns the form.
+3.Dynamic form template, displays this dynamic form return by service in its template.
 
 # steps to run 
-1. clone the project
-2. goto project directory using cd command
-3. run npm install
-4. once compiled project will be open on the url : localhost:4000
+1. Clone the project
+2. Goto project directory using cd command
+3. Run npm install
+4. Once compiled project will be open on the url : localhost:4000
 
 # Demo
 
