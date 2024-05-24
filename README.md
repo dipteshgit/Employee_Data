@@ -1,5 +1,24 @@
+# Project Description
+This project is created to dynamically generate reactive form in angular from JSON Object data.
+
+# Project structure
+Created two components
+1 dynamicform component 
+2 dynamic-form service
+
+# Logic
+1.Added Json object to main app component which pass this object to dynamicform component 
+2.dynamic form component passes this object to service which iterate on object and create dynamic form with form controls abd return the form
+3.dynamic form template displays this dynamic form return by service in its template
+
+# steps to run 
+1. clone the project
+2. goto project directory using cd command
+3. run npm install
+4. once compiled project will be open on url : localhost:4000
+
 # Demo
-test
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.18.
 
 ## Development server
